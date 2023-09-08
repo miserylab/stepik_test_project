@@ -2,6 +2,7 @@ package org.stepik.ui.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -13,8 +14,8 @@ public class CatalogSalePage {
         return this;
     }
 
-    public CatalogSalePage getCatalogSaleHeaderText(String value){
-        catalogSalePageHeader.text().equals(value);
+    public CatalogSalePage verifyCatalogSaleHeaderText(String value){
+        catalogSalePageHeader.shouldHave(text(value));
         return this;
     }
 

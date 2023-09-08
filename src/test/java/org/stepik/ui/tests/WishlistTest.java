@@ -1,4 +1,4 @@
 package org.stepik.ui.tests;
 
-public class CatalogSaleTests {
+public class WishlistTest {
 }
