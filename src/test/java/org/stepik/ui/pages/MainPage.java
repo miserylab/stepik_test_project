@@ -20,7 +20,8 @@ public class MainPage {
             unsuccessfullLoginAlert = $("li[role='alert']"),
             userEmailInput = $("#id_login_email"),
             userPasswordInput = $("#id_login_password"),
-            userAvatar = $("[class^='navbar__profile']"),
+            userAvatarImg = $("[class^='navbar__profile']"),
+            userAvatar = $("[type='button'][class^='navbar__profile']"),
             logoutModal = $(".modal-popup__container"),
             logoutCancelButton = $(".modal-popup__container .white"),
             languageButton = $("[class*='language-selector']"),
@@ -76,7 +77,7 @@ public class MainPage {
     }
 
     public MainPage userAvatarIsVisible() {
-        userAvatar.shouldBe(visible);
+        userAvatarImg.shouldBe(visible);
         return this;
     }
 
@@ -117,7 +118,7 @@ public class MainPage {
     }
 
     public MainPage verifyCatalogHeaders(List<String> expectedHeaders) {
-        sleep(1000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
+        sleep(10000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
         ElementsCollection headers = catalogHeaders;
         ArrayList<String> webPageHeaders = getHeadersFromPage(headers);
 

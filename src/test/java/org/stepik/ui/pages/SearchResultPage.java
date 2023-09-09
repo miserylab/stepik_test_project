@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SearchResultPage {
 
-    ElementsCollection wishListButtons = $$("li.course-cards__item .course-card__bookmark"),
+    ElementsCollection wishListButtons = $$("[type='button'][class^='course-card__bookmark']"),
             searchResultHeaders = $$(".course-cards__item .course-card__title");
 
     public SearchResultPage verifyCourseName(String value) {
@@ -16,6 +16,7 @@ public class SearchResultPage {
     }
 
     public SearchResultPage wishlistCourse() {
+        sleep(5000);
         wishListButtons.get(0).click();
         return this;
     }

@@ -2,6 +2,7 @@ package org.stepik.ui.tests;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -11,7 +12,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Authorization")
 @Feature("Log in")
 @Story("Log in with credentials")
-//@Tag("web")
+@Tag("web")
 public class LoginTest extends BaseTest {
 
     @Test

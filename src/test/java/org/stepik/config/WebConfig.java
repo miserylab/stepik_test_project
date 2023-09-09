@@ -1,6 +1,7 @@
 package org.stepik.config;
 
 import org.aeonbits.owner.Config;
+import org.junit.jupiter.api.DisplayName;
 
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
@@ -78,12 +79,14 @@ public interface WebConfig extends Config {
     String getLocalAndroidDevice();
 
     @Key("android.local.app.path")
-    @DefaultValue("src/test/resources/apps/org.stepic.droid.apk")
+    @DefaultValue("src/test/resources/apps/Stepik.apk")
     String getLocalAndroidAppPath();
 
     @Key("appPackage")
+    @DefaultValue("org.stepic.droid")
     String getLocalAndroidAppPackage();
 
     @Key("appActivity")
+    @DefaultValue("org.stepic.droid.ui.activities.MainFeedActivity")
     String getLocalAndroidAppActivity();
 }

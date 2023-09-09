@@ -34,8 +34,9 @@ public class AndroidLocalDriver implements WebDriverProvider {
                 .setFullReset(false)
 //                .setApp(getApk().getAbsolutePath())
                 .setApp(new File(config.getLocalAndroidAppPath()).getAbsolutePath())
-                .setAppPackage("org.stepic.droid")
-                .setAppActivity("org.stepic.droid.ui.activities.MainFeedActivity");
+                .setAppPackage(config.getLocalAndroidAppPackage())
+                .setAppActivity(config.getLocalAndroidAppActivity())
+        ;
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 

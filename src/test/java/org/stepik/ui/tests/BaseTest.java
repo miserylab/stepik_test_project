@@ -33,6 +33,7 @@ public class BaseTest {
         Configuration.browser = config.getBrowserName();
         Configuration.browserVersion = config.getBrowserVersion();
         Configuration.browserSize = config.getBrowserSize();
+        Configuration.timeout = 7000;
 
         if (config.isRemote()) {
             Configuration.remote = config.getRemoteUrl() + "/wd/hub";
