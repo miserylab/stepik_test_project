@@ -20,8 +20,7 @@ public class TestData implements ArgumentsProvider {
             unregisteredEmail = "test@eryuew.com",
             userPassword = "F8EhaLCsAp9sB5",
             unSuccessfullAlert = "E-mail адрес и/или пароль не верны.",
-    searchText = "основы java",
-    courseNameInDropDownList = "основы java",
+            searchText = "основы java",
             courseName = "Основы java",
             noWishlistNoteText = "Add interesting courses to your Wishlist to come back to them later.";
 

@@ -9,16 +9,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class WishlistPage {
 
-    SelenideElement removeFromWishlistButton =$("[data-qa='menu-item-remove-from-wishlist']"),
+    SelenideElement removeFromWishlistButton = $("[data-qa='menu-item-remove-from-wishlist']"),
             removeModal = $(".modal-popup__container"),
             removeButton = $(".modal-popup__container .danger"),
             noWishlistNote = $(".teachlearn__empty-note"),
-                    wishlistedCourse = $(".item-tile");
+            wishlistedCourse = $(".item-tile");
 
-    ElementsCollection wishlistedCources = $$(".item-tile__link-wrapper"),
-    wishlistManageButton = $$(".menu-more_icon");
+    ElementsCollection wishlistManageButton = $$(".menu-more_icon");
 
-    public WishlistPage openWishlistPage(){
+    public WishlistPage openWishlistPage() {
         open("/learn/courses/wishlist");
         return this;
     }
@@ -44,7 +43,7 @@ public class WishlistPage {
         return this;
     }
 
-    public WishlistPage clickRemoveButton(){
+    public WishlistPage clickRemoveButton() {
         removeButton.click();
         return this;
     }

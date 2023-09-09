@@ -27,9 +27,9 @@ public class MainPageTest extends TestBase {
     @Severity(CRITICAL)
     void mainPageShouldRedirectToCatalog() {
         step("Open main page", () ->
-        mainPage.openPage());
+                mainPage.openPage());
         step("Verify redirect to " + testData.catalogPageUrl, () ->
-        mainPage.verifyUrl(testData.catalogPageUrl));
+                mainPage.verifyUrl(testData.catalogPageUrl));
     }
 
     @ParameterizedTest
@@ -41,9 +41,9 @@ public class MainPageTest extends TestBase {
     void languageSelectionShouldHaveDifferentListOfCatalogs(String language, List<String> expectedHeaders) {
         step("Open main page", () ->
                 mainPage.openPage());
-        step("Select language: " + language , () ->
+        step("Select language: " + language, () ->
                 mainPage.setLanguage(language));
-        step("Verify catalog headers: " + expectedHeaders , () ->
+        step("Verify catalog headers: " + expectedHeaders, () ->
                 mainPage.verifyCatalogHeaders(expectedHeaders));
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.stepik.ui.helpers.WebPageElementsGetter.getHeadersFromPage;
@@ -20,21 +21,18 @@ public class MainPage {
             userEmailInput = $("#id_login_email"),
             userPasswordInput = $("#id_login_password"),
             submitButton = $("button[type='submit']"),
-            userAvatar = $(".navbar__profile-img"),
+            userAvatar = $("[class^='navbar__profile']"),
             logoutButton = $("[data-qa='menu-item-logout']"),
             logoutModal = $(".modal-popup__container"),
-            logoutOkButton = $(".modal-popup__container [data-ember-action='']"),
+            logoutOkButton = $(".modal-popup__container .modal-popup__footer [data-ember-action-81='81']"),
             logoutCancelButton = $(".modal-popup__container .white"),
-            loginModalCloseButton = $(".modal-button-close-icon"),
-            loginButton = $("#ember222"),
-            registrationButton = $("#ember223"),
             languageButton = $("[class*='language-selector']"),
             searchInput = $(".search-form__input");
-            ElementsCollection languageList = $$("li.menu-item"),
-                    catalogHeaders = $$("[class='catalog-block__title']"),
-                    searchDropDownListItems = $$("li.menu-item");
+    ElementsCollection languageList = $$("li.menu-item"),
+            catalogHeaders = $$("[class='catalog-block__title']"),
+            buttonList = $$("button");
 
-    public MainPage openPage(){
+    public MainPage openPage() {
         open("/");
         return this;
     }
@@ -44,7 +42,7 @@ public class MainPage {
         return this;
     }
 
-    public MainPage openLoginModal(){
+    public MainPage openLoginModal() {
         open("/catalog?auth=login");
         return this;
     }
@@ -54,7 +52,7 @@ public class MainPage {
         return this;
     }
 
-    public MainPage clickBannerSale () {
+    public MainPage clickBannerSale() {
         bannerSale.click();
         return this;
     }
@@ -66,8 +64,8 @@ public class MainPage {
     }
 
     public MainPage setUserEmail(String value) {
-    userEmailInput.setValue(value);
-    return this;
+        userEmailInput.setValue(value);
+        return this;
     }
 
     public MainPage setUserUserPassword(String value) {
@@ -76,7 +74,7 @@ public class MainPage {
     }
 
     public MainPage clickLogin() {
-        submitButton.click();
+        buttonList.find(text("Войти")).click();
         return this;
     }
 
@@ -90,8 +88,8 @@ public class MainPage {
         return this;
     }
 
-    public MainPage clickLogout() {
-        logoutButton.click();
+    public MainPage clickLogoutInDropDownMenu() {
+        buttonList.find(text("Logout")).click();
         return this;
     }
 
@@ -101,8 +99,7 @@ public class MainPage {
     }
 
     public MainPage clickConfirmLogout() {
-        switchTo().activeElement();
-        logoutOkButton.click();
+        buttonList.find(text("OK")).click();
         return this;
     }
 
@@ -111,27 +108,12 @@ public class MainPage {
         return this;
     }
 
-    public MainPage clickCloseLoginModal() {
-        loginModalCloseButton.click();
-        return this;
-    }
-
-    public MainPage loginButtonIsVisible() {
-        loginButton.shouldBe(visible);
-        return this;
-    }
-
-    public MainPage registrationButtonIsVisible() {
-        registrationButton.shouldBe(visible);
-        return this;
-    }
-
-    public MainPage verifyUnSuccessfullLoginAlert(String value){
+    public MainPage verifyUnSuccessfullLoginAlert(String value) {
         unsuccessfullLoginAlert.shouldHave(text(value));
         return this;
     }
 
-    public MainPage setLanguage(String value){
+    public MainPage setLanguage(String value) {
         languageButton.click();
         languageList.find(text(value)).click();
         return this;
@@ -146,15 +128,9 @@ public class MainPage {
         return this;
     }
 
-    public MainPage setSearchValue(String value) {
+    public MainPage SearchValue(String value) {
         searchInput.setValue(value).pressEnter();
-        sleep(1000);
         return this;
     }
 
-//    public MainPage chooseCourse(String value) {
-//        sleep(1000);
-//        searchDropDownListItems.find(text(value)).click();
-//        return this;
-//    }
 }

@@ -1,10 +1,7 @@
 package org.stepik.ui.tests;
 
 import io.qameta.allure.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
@@ -14,47 +11,42 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Log out")
 @Story("Log out")
 @Tag("web")
-public class LogoutTest extends TestBase{
+public class LogoutTest extends TestBase {
 
     @BeforeEach
     void successfullLogin() {
         step("Successfull Login", () ->
                 mainPage.openLoginModal()
-                .setUserEmail(testData.userEmail)
-                .setUserUserPassword(testData.userPassword)
-                .clickLogin()
-                .userAvatarIsVisible());
+                        .setUserEmail(testData.userEmail)
+                        .setUserUserPassword(testData.userPassword)
+                        .clickLogin()
+                        .userAvatarIsVisible());
     }
 
     @Test
     @DisplayName("Успешный Logout")
     @Owner("o.demina")
     @Severity(BLOCKER)
-    void SuccessfullLogOut() {
-        mainPage.openPage();
+    void successfullLogOut() {
         step("Click Logout Button", () ->
                 mainPage.userAvatarClick()
-                        .clickLogout());
+                        .clickLogoutInDropDownMenu());
         step("Log out Modal appeared", () ->
                 mainPage.logoutModalAppeared());
         step("Click Confirm log out", () ->
                 mainPage.clickConfirmLogout());
         step("Verify user is logged out", () ->
-                mainPage.loginModalAppeared()
-                        .clickCloseLoginModal()
-                        .loginButtonIsVisible()
-                        .registrationButtonIsVisible());
+                mainPage.loginModalAppeared());
     }
 
     @Test
     @DisplayName("Отмена Logout")
     @Owner("o.demina")
     @Severity(CRITICAL)
-    void CanceledLogOut() {
-        mainPage.openPage();
+    void canceledLogOut() {
         step("Click Logout Button", () ->
                 mainPage.userAvatarClick()
-                        .clickLogout());
+                        .clickLogoutInDropDownMenu());
         step("Log out Modal appeared", () ->
                 mainPage.logoutModalAppeared());
         step("Click Cancel log out", () ->

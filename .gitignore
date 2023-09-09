@@ -3,3 +3,6 @@
 /.gradle
 *.class
 .idea
+gradlew
+gradlew.bat
+gradle

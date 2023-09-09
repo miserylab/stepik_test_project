@@ -3,7 +3,6 @@ package org.stepik.config;
 import org.aeonbits.owner.Config;
 
 
-
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
@@ -35,15 +34,6 @@ public interface WebConfig extends Config {
     @Key("webRemoteUrl")
     @DefaultValue("https://user1:1234@selenoid.autotests.cloud")
     String getRemoteUrl();
-
-    @Key("webPageLoadTimeout")
-    Long getPageLoadTimeout();
-
-    @Key("webTimeout")
-    Long getTimeout();
-
-    @Key("webIsHeadless")
-    Boolean isHeadless();
 
     // Mobile tests properties
     @Key("browserstack.user")

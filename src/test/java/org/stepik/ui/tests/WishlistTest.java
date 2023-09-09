@@ -3,7 +3,6 @@ package org.stepik.ui.tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
@@ -21,16 +20,16 @@ public class WishlistTest extends TestBase {
                         .setUserUserPassword(testData.userPassword)
                         .clickLogin()
                         .userAvatarIsVisible());
-        sleep(1000);
     }
 
     @AfterEach
-    void removeCourceFromWishlist(){
-        wishlistPage.clickManageWishlistButton()
-                .clickRemoveFromWishlistButton()
-                .removeModalAppeared()
-                .clickRemoveButton()
-                .verifyNoWishlists(testData.noWishlistNoteText);
+    void removeCourseFromWishlist() {
+        step("Successfull course removal from wishlist", () ->
+                wishlistPage.clickManageWishlistButton()
+                        .clickRemoveFromWishlistButton()
+                        .removeModalAppeared()
+                        .clickRemoveButton()
+                        .verifyNoWishlists(testData.noWishlistNoteText));
     }
 
     @Test
@@ -38,13 +37,13 @@ public class WishlistTest extends TestBase {
     @Owner("o.demina")
     @Severity(CRITICAL)
     void successfullAddCourseToWishlist() {
-//        step("Open main page", () ->
-//                mainPage.openPage());
-        mainPage.setSearchValue(testData.searchText);
-//                .chooseCourse(testData.courseNameInDropDownList);
-        searchResultPage.verifyCourseName(testData.courseName)
-                        .wishlistCourse();
-        wishlistPage.openWishlistPage()
-                .verifyCourseInWishlist(testData.courseName);
+        step("Search for value: " + testData.searchText, () ->
+                mainPage.SearchValue(testData.searchText));
+        step("Wishlist Course: " + testData.courseName, () ->
+                searchResultPage.verifyCourseName(testData.courseName)
+                        .wishlistCourse());
+        step("Verify Course is wishlisted", () ->
+                wishlistPage.openWishlistPage()
+                        .verifyCourseInWishlist(testData.courseName));
     }
 }

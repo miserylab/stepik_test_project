@@ -26,6 +26,6 @@ public class CatalogSaleTest extends TestBase {
                         .clickBannerSale());
         step("Verify catalog sale page is open", () ->
                 catalogSalePage.verifyUrl(testData.catalogSalePageUrl)
-                .verifyCatalogSaleHeaderText(testData.catalogSalePageTitle));
+                        .verifyCatalogSaleHeaderText(testData.catalogSalePageTitle));
     }
 }

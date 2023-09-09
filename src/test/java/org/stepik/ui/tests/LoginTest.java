@@ -19,12 +19,12 @@ public class LoginTest extends TestBase {
     @DisplayName("Успешный логин")
     @Owner("o.demina")
     @Severity(BLOCKER)
-    void SuccessfullLogin() {
+    void successfullLogin() {
         step("Open main page", () ->
                 mainPage.openLoginModal());
         step("Fill Email and Password", () ->
-        mainPage.setUserEmail(testData.userEmail)
-                .setUserUserPassword(testData.userPassword));
+                mainPage.setUserEmail(testData.userEmail)
+                        .setUserUserPassword(testData.userPassword));
         step("Click Login Button", () ->
                 mainPage.clickLogin());
         step("Verify user is logged in", () ->
@@ -35,7 +35,7 @@ public class LoginTest extends TestBase {
     @DisplayName("Неуспешный логин под незарегистрированным пользователем")
     @Owner("o.demina")
     @Severity(CRITICAL)
-    void UnSuccessfullLogin() {
+    void unSuccessfullLogin() {
         step("Open main page", () ->
                 mainPage.openLoginModal());
         step("Fill Email and Password", () ->

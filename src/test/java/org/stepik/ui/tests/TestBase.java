@@ -23,8 +23,8 @@ public class TestBase {
     CatalogSalePage catalogSalePage = new CatalogSalePage();
     SearchResultPage searchResultPage = new SearchResultPage();
     WishlistPage wishlistPage = new WishlistPage();
-    ProfilePage profilePage = new ProfilePage();
     TestData testData = new TestData();
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = config.getBaseUrl();
@@ -47,12 +47,12 @@ public class TestBase {
     }
 
     @BeforeEach
-    void addListener(){
+    void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
-    void addAttachments () {
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
