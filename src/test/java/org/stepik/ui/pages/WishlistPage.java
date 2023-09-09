@@ -49,7 +49,6 @@ public class WishlistPage {
     }
 
     public WishlistPage verifyNoWishlists(String value) {
-        noWishlistNote.isDisplayed();
         noWishlistNote.shouldHave(text(value));
         return this;
     }

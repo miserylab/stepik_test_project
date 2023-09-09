@@ -20,11 +20,8 @@ public class MainPage {
             unsuccessfullLoginAlert = $("li[role='alert']"),
             userEmailInput = $("#id_login_email"),
             userPasswordInput = $("#id_login_password"),
-            submitButton = $("button[type='submit']"),
             userAvatar = $("[class^='navbar__profile']"),
-            logoutButton = $("[data-qa='menu-item-logout']"),
             logoutModal = $(".modal-popup__container"),
-            logoutOkButton = $(".modal-popup__container .modal-popup__footer [data-ember-action-81='81']"),
             logoutCancelButton = $(".modal-popup__container .white"),
             languageButton = $("[class*='language-selector']"),
             searchInput = $(".search-form__input");
