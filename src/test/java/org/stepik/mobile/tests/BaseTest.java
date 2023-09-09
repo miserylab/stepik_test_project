@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.stepik.mobile.helpers.Attach.pageSource;
 import static org.stepik.mobile.helpers.Attach.screenshotAs;
 
-public class TestBase {
+public class BaseTest {
     private final WebConfig config = ConfigFactory.create(WebConfig.class);
 
     @BeforeAll

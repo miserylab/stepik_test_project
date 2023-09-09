@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 
 @Tag("Mobile")
-public class SearchTests extends TestBase {
+public class SearchTests extends BaseTest {
 
     @Test
     @DisplayName("test")

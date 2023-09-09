@@ -11,7 +11,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Log out")
 @Story("Log out")
 @Tag("web")
-public class LogoutTest extends TestBase {
+public class LogoutTest extends BaseTest {
 
     @BeforeEach
     void successfullLogin() {

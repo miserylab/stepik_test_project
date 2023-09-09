@@ -9,8 +9,8 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Wishlist")
 @Feature("Wishlist")
 @Story("Managing wishlist items")
-@Tag("web")
-public class WishlistTest extends TestBase {
+//@Tag("web")
+public class WishlistTest extends BaseTest {
 
     @BeforeEach
     void successfullLogin() {
