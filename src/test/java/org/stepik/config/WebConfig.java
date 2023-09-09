@@ -7,6 +7,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
+        "classpath:configs/base.properties",
         "classpath:configs/${env}.properties"
 })
 public interface WebConfig extends Config {

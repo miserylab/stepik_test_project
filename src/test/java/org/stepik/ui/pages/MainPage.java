@@ -9,6 +9,7 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.stepik.ui.helpers.WebPageElementsGetter.getHeadersFromPage;
 
 public class MainPage {
@@ -22,17 +23,24 @@ public class MainPage {
             userAvatar = $(".navbar__profile-img"),
             logoutButton = $("[data-qa='menu-item-logout']"),
             logoutModal = $(".modal-popup__container"),
-            logoutOkButton = $("footer[id='ember440'] button:nth-child(1)"),
-            logoutCancelButton = $("[data-ember-action-493='493']"),
+            logoutOkButton = $(".modal-popup__container [data-ember-action='']"),
+            logoutCancelButton = $(".modal-popup__container .white"),
             loginModalCloseButton = $(".modal-button-close-icon"),
             loginButton = $("#ember222"),
             registrationButton = $("#ember223"),
-            languageButton = $("[class*='language-selector']");
+            languageButton = $("[class*='language-selector']"),
+            searchInput = $(".search-form__input");
             ElementsCollection languageList = $$("li.menu-item"),
-                    catalogHeaders = $$("[class='catalog-block__title']");
+                    catalogHeaders = $$("[class='catalog-block__title']"),
+                    searchDropDownListItems = $$("li.menu-item");
 
     public MainPage openPage(){
         open("/");
+        return this;
+    }
+
+    public MainPage verifyUrl(String value) {
+        webdriver().shouldHave(url(value));
         return this;
     }
 
@@ -51,7 +59,7 @@ public class MainPage {
         return this;
     }
 
-    public MainPage LoginModalAppeared() {
+    public MainPage loginModalAppeared() {
         loginModal.should(appear);
 
         return this;
@@ -93,6 +101,7 @@ public class MainPage {
     }
 
     public MainPage clickConfirmLogout() {
+        switchTo().activeElement();
         logoutOkButton.click();
         return this;
     }
@@ -136,4 +145,16 @@ public class MainPage {
         assert expectedHeaders.equals(webPageHeaders);
         return this;
     }
+
+    public MainPage setSearchValue(String value) {
+        searchInput.setValue(value).pressEnter();
+        sleep(1000);
+        return this;
+    }
+
+//    public MainPage chooseCourse(String value) {
+//        sleep(1000);
+//        searchDropDownListItems.find(text(value)).click();
+//        return this;
+//    }
 }

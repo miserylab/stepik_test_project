@@ -13,13 +13,17 @@ public class TestData implements ArgumentsProvider {
 
     private final WebConfig config = ConfigFactory.create(WebConfig.class);
 
-    public String catalogPage = config.getBaseUrl() + "/catalog",
-            catalogSalePage = "https://welcome.stepik.org/catalog-sale",
+    public String catalogPageUrl = config.getBaseUrl() + "/catalog",
+            catalogSalePageUrl = "https://welcome.stepik.org/catalog-sale",
             catalogSalePageTitle = "Распродажа в честь 10-летия платформы Stepik",
             userEmail = "psychosomatic2032@gmail.com",
             unregisteredEmail = "test@eryuew.com",
             userPassword = "F8EhaLCsAp9sB5",
-            unSuccessfullAlert = "E-mail адрес и/или пароль не верны.";
+            unSuccessfullAlert = "E-mail адрес и/или пароль не верны.",
+    searchText = "основы java",
+    courseNameInDropDownList = "основы java",
+            courseName = "Основы java",
+            noWishlistNoteText = "Add interesting courses to your Wishlist to come back to them later.";
 
     @Override
     public Stream<? extends Arguments> provideArguments(ExtensionContext context) {

@@ -31,6 +31,7 @@ public class LogoutTest extends TestBase{
     @Owner("o.demina")
     @Severity(BLOCKER)
     void SuccessfullLogOut() {
+        mainPage.openPage();
         step("Click Logout Button", () ->
                 mainPage.userAvatarClick()
                         .clickLogout());
@@ -39,7 +40,7 @@ public class LogoutTest extends TestBase{
         step("Click Confirm log out", () ->
                 mainPage.clickConfirmLogout());
         step("Verify user is logged out", () ->
-                mainPage.LoginModalAppeared()
+                mainPage.loginModalAppeared()
                         .clickCloseLoginModal()
                         .loginButtonIsVisible()
                         .registrationButtonIsVisible());
@@ -50,6 +51,7 @@ public class LogoutTest extends TestBase{
     @Owner("o.demina")
     @Severity(CRITICAL)
     void CanceledLogOut() {
+        mainPage.openPage();
         step("Click Logout Button", () ->
                 mainPage.userAvatarClick()
                         .clickLogout());

@@ -10,8 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.stepik.ui.pages.CatalogSalePage;
-import org.stepik.ui.pages.MainPage;
+import org.stepik.ui.pages.*;
 import org.stepik.ui.utils.TestData;
 
 import java.util.Map;
@@ -22,6 +21,9 @@ public class TestBase {
     private static final WebConfig config = ConfigFactory.create(WebConfig.class);
     MainPage mainPage = new MainPage();
     CatalogSalePage catalogSalePage = new CatalogSalePage();
+    SearchResultPage searchResultPage = new SearchResultPage();
+    WishlistPage wishlistPage = new WishlistPage();
+    ProfilePage profilePage = new ProfilePage();
     TestData testData = new TestData();
     @BeforeAll
     static void beforeAll() {
