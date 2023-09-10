@@ -6,8 +6,7 @@ import java.util.List;
 
 public class MobileTestData {
 
-    public String placeholderMessage = "Sign in to continue",
-            userEmail = "psychosomatic2032@gmail.com",
+    public String userEmail = "psychosomatic2032@gmail.com",
             unregisteredEmail = "test@eryuew.com",
             userPassword = "F8EhaLCsAp9sB5",
             courseName = "Data Structures",
