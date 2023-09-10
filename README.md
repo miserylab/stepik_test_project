@@ -181,9 +181,17 @@ Also additional test artifacts are available:
 
 ## UI
 
-https://user-images.githubusercontent.com/95403808/201524887-0593a812-b18d-4a54-b8c9-440c7f2623ec.mp4
+
+https://github.com/miserylab/stepik_test_project/assets/95403808/9804c26a-dfae-4be0-9250-be9b5a701ce1
+
 
 ## Mobile
+
+
+
+https://github.com/miserylab/stepik_test_project/assets/95403808/aa6717b9-7601-4074-8dae-0fc3eda53fe7
+
+
 
 [Back to the table of contents ⬆](#TableOfContents)
 
