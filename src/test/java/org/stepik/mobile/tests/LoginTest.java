@@ -43,6 +43,7 @@ public class LoginTest extends BaseMobileTest {
     @DisplayName("Неуспешный логин под незарегистрированным пользователем")
     @Owner("o.demina")
     @Severity(CRITICAL)
+    @Tag("remote")
     void unSuccessfullLogin() {
         step("Open profile tab", () ->
                 catalogPage.clickProfileTab());

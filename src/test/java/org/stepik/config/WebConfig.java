@@ -61,13 +61,8 @@ public interface WebConfig extends Config {
     String getBuildName();
 
     @Key("mobilePlatform")
-//    @DefaultValue("browserstack")
     @DefaultValue("browserstack")
     String getMobilePlatform();
-
-    @Key("local.url")
-    @DefaultValue("http://localhost:4723/wd/hub")
-    String getLocalUrl();
 
     @Key("android.local.version")
     @DefaultValue("14.0")
@@ -88,4 +83,12 @@ public interface WebConfig extends Config {
     @Key("appActivity")
     @DefaultValue("org.stepic.droid.ui.activities.MainFeedActivity")
     String getLocalAndroidAppActivity();
+
+    @Key("stepik.user")
+//    @DefaultValue("psychosomatic2032@gmail.com")
+    String getStepikUser();
+
+    @Key("stepik.key")
+//    @DefaultValue("F8EhaLCsAp9sB5")
+    String getStepikPassword();
 }

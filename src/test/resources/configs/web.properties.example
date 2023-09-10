@@ -3,3 +3,4 @@ webBrowserVersion=109
 webBaseUrl=https://stepik.org
 webBrowserSize=1920x1080
 webRemoteUrl=https://user1:1234@selenoid.autotests.cloud
+webIsRemote=false

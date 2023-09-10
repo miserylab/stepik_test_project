@@ -3,4 +3,3 @@ android.local.device=Pixel 4
 android.local.app.path=src/test/resources/apps/org.stepic.droid.apk
 appPackage=org.stepic.droid
 appActivity=org.stepic.droid.ui.activities.MainFeedActivity
-local.url=http://localhost:4723/wd/hub
