@@ -5,7 +5,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

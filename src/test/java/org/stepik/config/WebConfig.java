@@ -62,7 +62,7 @@ public interface WebConfig extends Config {
 
     @Key("mobilePlatform")
 //    @DefaultValue("browserstack")
-    @DefaultValue("local")
+    @DefaultValue("browserstack")
     String getMobilePlatform();
 
     @Key("local.url")

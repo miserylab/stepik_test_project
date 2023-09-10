@@ -38,12 +38,12 @@ public class LoginTest extends BaseTest {
     void unSuccessfullLogin() {
         step("Open main page", () ->
                 mainPage.openLoginModal());
-        step("Fill Email and Password", () ->
+        step("Fill unregistered Email and Password", () ->
                 mainPage.setUserEmail(testData.unregisteredEmail)
                         .setUserUserPassword(testData.userPassword));
         step("Click Login Button", () ->
                 mainPage.clickLogin());
-        step("Verify user is logged in", () ->
+        step("Verify user is not logged in", () ->
                 mainPage.verifyUnSuccessfullLoginAlert(testData.unSuccessfullAlert));
     }
 }

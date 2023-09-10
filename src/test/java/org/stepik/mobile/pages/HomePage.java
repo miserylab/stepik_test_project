@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
 
 import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage {
@@ -16,19 +15,19 @@ public class HomePage {
             notificationCloseButton = $(AppiumBy.id("android:id/button2"));
 
     public HomePage homePageIsOpened() {
-        catalogTab.shouldHave(attribute("selected","false"));
-        homeTab.shouldHave(attribute("selected","true"));
-        profileTab.shouldHave(attribute("selected","false"));
-        notificationsTab.shouldHave(attribute("selected","false"));
+        catalogTab.shouldHave(attribute("selected", "false"));
+        homeTab.shouldHave(attribute("selected", "true"));
+        profileTab.shouldHave(attribute("selected", "false"));
+        notificationsTab.shouldHave(attribute("selected", "false"));
         return this;
     }
 
-    public HomePage clickNotificationCloseButton(){
+    public HomePage clickNotificationCloseButton() {
         notificationCloseButton.click();
         return this;
     }
 
-    public HomePage clickProfileTab(){
+    public HomePage clickProfileTab() {
         profileTab.click();
         return this;
     }

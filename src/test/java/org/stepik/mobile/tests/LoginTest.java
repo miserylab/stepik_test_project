@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Epic("Auth Mobile")
@@ -18,18 +19,23 @@ public class LoginTest extends BaseMobileTest {
     @Owner("o.demina")
     @Severity(CRITICAL)
     void successfullLogin() {
-        catalogPage.clickProfileTab();
-        profilePage.profilePageIsOpened(mobileTestData.placeholderMessage)
-                .clickSigninButton();
-        authPage.clickSignInWithEmailButton()
-                .setLogin(mobileTestData.userEmail)
-                .setPassword(mobileTestData.userPassword)
-                .clickloginButton();
-        homePage.clickNotificationCloseButton()
-                .homePageIsOpened();
-
-        homePage.clickProfileTab();
-        profilePage.verifyUserIsLogged(mobileTestData.userName);
+        step("Open profile tab", () ->
+                catalogPage.clickProfileTab());
+        step("Click signin buttoon", () ->
+                profilePage.clickSigninButton());
+        step("Open auth page", () ->
+                authPage.clickSignInWithEmailButton());
+        step("Fill Email and Password", () ->
+                authPage.setLogin(mobileTestData.userEmail)
+                        .setPassword(mobileTestData.userPassword)
+                        .clickloginButton());
+        step("Close notification modal", () ->
+                homePage.clickNotificationCloseButton()
+                        .homePageIsOpened());
+        step("Open profile tab", () ->
+                homePage.clickProfileTab());
+        step("Verify user is logged", () ->
+                profilePage.verifyUserIsLogged(mobileTestData.userName));
 
     }
 
@@ -38,13 +44,17 @@ public class LoginTest extends BaseMobileTest {
     @Owner("o.demina")
     @Severity(CRITICAL)
     void unSuccessfullLogin() {
-        catalogPage.clickProfileTab();
-        profilePage.profilePageIsOpened(mobileTestData.placeholderMessage)
-                .clickSigninButton();
-        authPage.clickSignInWithEmailButton()
-                .setLogin(mobileTestData.unregisteredEmail)
-                .setPassword(mobileTestData.userPassword)
-                .clickloginButton();
-        authPage.verifyLoginErrorMessage(mobileTestData.loginErrorMessageText);
+        step("Open profile tab", () ->
+                catalogPage.clickProfileTab());
+        step("Click signin buttoon", () ->
+                profilePage.clickSigninButton());
+        step("Open auth page", () ->
+                authPage.clickSignInWithEmailButton());
+        step("Fill Unregistered Email and Password", () ->
+                authPage.setLogin(mobileTestData.unregisteredEmail)
+                        .setPassword(mobileTestData.userPassword)
+                        .clickloginButton());
+        step("Verify user is not logged in", () ->
+                authPage.verifyLoginErrorMessage(mobileTestData.loginErrorMessageText));
     }
 }

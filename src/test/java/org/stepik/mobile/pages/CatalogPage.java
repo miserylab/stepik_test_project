@@ -4,9 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.impl.CollectionElement;
 import io.appium.java_client.AppiumBy;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
@@ -32,11 +30,11 @@ public class CatalogPage {
         return this;
     }
 
-    public CatalogPage catalogTabIsSelected(){
-        catalogTab.shouldHave(attribute("selected","true"));
-        homeTab.shouldHave(attribute("selected","false"));
-        profileTab.shouldHave(attribute("selected","false"));
-        notificationsTab.shouldHave(attribute("selected","false"));
+    public CatalogPage catalogTabIsSelected() {
+        catalogTab.shouldHave(attribute("selected", "true"));
+        homeTab.shouldHave(attribute("selected", "false"));
+        profileTab.shouldHave(attribute("selected", "false"));
+        notificationsTab.shouldHave(attribute("selected", "false"));
         return this;
     }
 

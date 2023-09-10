@@ -32,7 +32,6 @@ public class AndroidLocalDriver implements WebDriverProvider {
                 .setDeviceName(config.getLocalAndroidDevice())
                 .setNewCommandTimeout(Duration.ofSeconds(11))
                 .setFullReset(false)
-//                .setApp(getApk().getAbsolutePath())
                 .setApp(new File(config.getLocalAndroidAppPath()).getAbsolutePath())
                 .setAppPackage(config.getLocalAndroidAppPackage())
                 .setAppActivity(config.getLocalAndroidAppActivity())
@@ -47,8 +46,4 @@ public class AndroidLocalDriver implements WebDriverProvider {
             throw new RuntimeException(e);
         }
     }
-
-//    private File getApk() {
-//        return new File("src/test/resources/apps/org.stepic.droid.apk");
-//    }
 }
