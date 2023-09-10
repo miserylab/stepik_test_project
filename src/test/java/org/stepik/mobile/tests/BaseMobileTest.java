@@ -46,8 +46,11 @@ public class BaseMobileTest {
             Configuration.browser = AndroidLocalDriver.class.getName();
         }
         open();
+
+        if ($(AppiumBy.id("com.android.permissioncontroller:id/permission_deny_button")).isDisplayed()) {
+            $(AppiumBy.id("com.android.permissioncontroller:id/permission_deny_button")).click();
+        }
         sleep(3000);
-        $(AppiumBy.id("com.android.permissioncontroller:id/permission_deny_button")).click();
         if ($(AppiumBy.id("org.stepic.droid:id/closeOnboarding")).isDisplayed()) {
             $(AppiumBy.id("org.stepic.droid:id/closeOnboarding")).click();
         } else {
