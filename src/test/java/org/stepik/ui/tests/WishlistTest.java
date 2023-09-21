@@ -6,9 +6,11 @@ import org.junit.jupiter.api.*;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
+
 @Epic("Wishlist")
 @Feature("Wishlist")
 @Story("Managing wishlist items")
+@Owner("o.demina")
 @Tag("web")
 public class WishlistTest extends BaseTest {
 
@@ -17,9 +19,9 @@ public class WishlistTest extends BaseTest {
         step("Successfull Login", () ->
                 mainPage.openLoginModal()
                         .setUserEmail(testData.userEmail)
-                        .setUserUserPassword(testData.userPassword)
+                        .setUserPassword(testData.userPassword)
                         .clickLogin()
-                        .userAvatarIsVisible());
+                        .checkAvatarIsVisible());
     }
 
     @AfterEach
@@ -34,14 +36,13 @@ public class WishlistTest extends BaseTest {
 
     @Test
     @DisplayName("Добавление курса в вишлист")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void successfullAddCourseToWishlist() {
         step("Search for value: " + testData.searchText, () ->
-                mainPage.SearchValue(testData.searchText));
+                mainPage.searchValue(testData.searchText));
         step("Wishlist Course: " + testData.courseName, () ->
                 searchResultPage.verifyCourseName(testData.courseName)
-                        .wishlistCourse());
+                        .clickWishlistCourse());
         step("Verify Course is wishlisted", () ->
                 wishlistPage.openWishlistPage()
                         .verifyCourseInWishlist(testData.courseName));

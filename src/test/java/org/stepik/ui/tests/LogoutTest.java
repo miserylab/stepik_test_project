@@ -10,6 +10,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Authorization")
 @Feature("Log out")
 @Story("Log out")
+@Owner("o.demina")
 @Tag("web")
 public class LogoutTest extends BaseTest {
 
@@ -18,18 +19,17 @@ public class LogoutTest extends BaseTest {
         step("Successfull Login", () ->
                 mainPage.openLoginModal()
                         .setUserEmail(testData.userEmail)
-                        .setUserUserPassword(testData.userPassword)
+                        .setUserPassword(testData.userPassword)
                         .clickLogin()
-                        .userAvatarIsVisible());
+                        .checkAvatarIsVisible());
     }
 
     @Test
     @DisplayName("Успешный Logout")
-    @Owner("o.demina")
     @Severity(BLOCKER)
     void successfullLogOut() {
         step("Click Logout Button", () ->
-                mainPage.userAvatarClick()
+                mainPage.clickOnUserAvatar()
                         .clickLogoutInDropDownMenu());
         step("Log out Modal appeared", () ->
                 mainPage.logoutModalAppeared());
@@ -41,17 +41,16 @@ public class LogoutTest extends BaseTest {
 
     @Test
     @DisplayName("Отмена Logout")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void canceledLogOut() {
         step("Click Logout Button", () ->
-                mainPage.userAvatarClick()
+                mainPage.clickOnUserAvatar()
                         .clickLogoutInDropDownMenu());
         step("Log out Modal appeared", () ->
                 mainPage.logoutModalAppeared());
         step("Click Cancel log out", () ->
                 mainPage.clickCancelLogout());
         step("Verify user is still logged in", () ->
-                mainPage.userAvatarIsVisible());
+                mainPage.checkAvatarIsVisible());
     }
 }

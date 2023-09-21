@@ -12,12 +12,12 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Сatalog")
 @Feature("Catalog Tab")
 @Story("Catalog categories")
+@Owner("o.demina")
 @Tag("mobile")
 public class CatalogTest extends BaseMobileTest {
 
     @Test
     @DisplayName("Проверка категорий на странице каталога")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void categoriesShouldBePresent() {
         step("Catalog tab is opened", () ->

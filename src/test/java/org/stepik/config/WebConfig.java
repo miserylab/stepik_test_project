@@ -61,7 +61,7 @@ public interface WebConfig extends Config {
     String getBuildName();
 
     @Key("mobilePlatform")
-    @DefaultValue("browserstack")
+    @DefaultValue("local")
     String getMobilePlatform();
 
     @Key("android.local.version")

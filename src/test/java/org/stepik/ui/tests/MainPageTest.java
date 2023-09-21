@@ -18,12 +18,12 @@ import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Story("Main Page")
+@Owner("o.demina")
 @Tag("web")
 public class MainPageTest extends BaseTest {
 
     @Test
     @DisplayName("Редирект на страницу каталога при переходе по основной ссылке сайта")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void mainPageShouldRedirectToCatalog() {
         step("Open main page", () ->
@@ -35,7 +35,6 @@ public class MainPageTest extends BaseTest {
     @ParameterizedTest
     @Flaky
     @DisplayName("В зависимости от выбранного языка выдается определенный набор каталогов")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     @ArgumentsSource(TestData.class)
     void languageSelectionShouldHaveDifferentListOfCatalogs(String language, List<String> expectedHeaders) {

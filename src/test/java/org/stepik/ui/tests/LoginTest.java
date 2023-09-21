@@ -12,35 +12,34 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Authorization")
 @Feature("Log in")
 @Story("Log in with credentials")
+@Owner("o.demina")
 @Tag("web")
 public class LoginTest extends BaseTest {
 
     @Test
     @DisplayName("Успешный логин")
-    @Owner("o.demina")
     @Severity(BLOCKER)
     void successfullLogin() {
         step("Open main page", () ->
                 mainPage.openLoginModal());
         step("Fill Email and Password", () ->
                 mainPage.setUserEmail(testData.userEmail)
-                        .setUserUserPassword(testData.userPassword));
+                        .setUserPassword(testData.userPassword));
         step("Click Login Button", () ->
                 mainPage.clickLogin());
         step("Verify user is logged in", () ->
-                mainPage.userAvatarIsVisible());
+                mainPage.checkAvatarIsVisible());
     }
 
     @Test
     @DisplayName("Неуспешный логин под незарегистрированным пользователем")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void unSuccessfullLogin() {
         step("Open main page", () ->
                 mainPage.openLoginModal());
         step("Fill unregistered Email and Password", () ->
                 mainPage.setUserEmail(testData.unregisteredEmail)
-                        .setUserUserPassword(testData.userPassword));
+                        .setUserPassword(testData.userPassword));
         step("Click Login Button", () ->
                 mainPage.clickLogin());
         step("Verify user is not logged in", () ->

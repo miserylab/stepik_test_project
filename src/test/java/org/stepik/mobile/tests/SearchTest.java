@@ -11,12 +11,12 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Search")
 @Feature("Catalog Search")
 @Story("Catalog Search")
+@Owner("o.demina")
 @Tag("mobile")
 public class SearchTest extends BaseMobileTest {
 
     @Test
     @DisplayName("Успешный поиск в каталоге")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void successfullCourseSearch() {
         step("Input search value", () ->

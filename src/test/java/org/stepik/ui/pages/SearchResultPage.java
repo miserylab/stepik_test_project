@@ -2,7 +2,11 @@ package org.stepik.ui.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SearchResultPage {
@@ -11,12 +15,12 @@ public class SearchResultPage {
             searchResultHeaders = $$(".course-cards__item .course-card__title");
 
     public SearchResultPage verifyCourseName(String value) {
-        searchResultHeaders.find(text(value));
+        searchResultHeaders.find(text(value)).shouldBe(visible);
         return this;
     }
 
-    public SearchResultPage wishlistCourse() {
-        sleep(5000);
+    public SearchResultPage clickWishlistCourse() {
+        wishListButtons.get(0).shouldBe(visible, Duration.ofSeconds(5));
         wishListButtons.get(0).click();
         return this;
     }

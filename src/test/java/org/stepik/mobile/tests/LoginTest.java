@@ -11,12 +11,12 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Epic("Auth Mobile")
 @Feature("Auth Mobile")
 @Story("Log in with credentials")
+@Owner("o.demina")
 @Tag("mobile")
 public class LoginTest extends BaseMobileTest {
 
     @Test
     @DisplayName("Успешный логин")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     void successfullLogin() {
         step("Open profile tab", () ->
@@ -41,7 +41,6 @@ public class LoginTest extends BaseMobileTest {
 
     @Test
     @DisplayName("Неуспешный логин под незарегистрированным пользователем")
-    @Owner("o.demina")
     @Severity(CRITICAL)
     @Tag("remote")
     void unSuccessfullLogin() {

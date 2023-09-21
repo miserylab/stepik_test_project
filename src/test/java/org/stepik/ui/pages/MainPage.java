@@ -2,7 +2,9 @@ package org.stepik.ui.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Assertions;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverConditions.url;
+
+import static org.hamcrest.Matchers.everyItem;
 import static org.stepik.ui.helpers.WebPageElementsGetter.getHeadersFromPage;
 
 public class MainPage {
@@ -45,8 +49,8 @@ public class MainPage {
         return this;
     }
 
-    public MainPage bannerSaleIsDisplayed() {
-        bannerSale.isDisplayed();
+    public MainPage checkBannerIsVisible() {
+        bannerSale.shouldBe(visible);
         return this;
     }
 
@@ -66,7 +70,7 @@ public class MainPage {
         return this;
     }
 
-    public MainPage setUserUserPassword(String value) {
+    public MainPage setUserPassword(String value) {
         userPasswordInput.setValue(value);
         return this;
     }
@@ -76,12 +80,12 @@ public class MainPage {
         return this;
     }
 
-    public MainPage userAvatarIsVisible() {
+    public MainPage checkAvatarIsVisible() {
         userAvatarImg.shouldBe(visible);
         return this;
     }
 
-    public MainPage userAvatarClick() {
+    public MainPage clickOnUserAvatar() {
         userAvatar.click();
         return this;
     }
@@ -118,15 +122,16 @@ public class MainPage {
     }
 
     public MainPage verifyCatalogHeaders(List<String> expectedHeaders) {
-        sleep(10000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
+        catalogHeaders.shouldBe();
+////        sleep(10000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
         ElementsCollection headers = catalogHeaders;
         ArrayList<String> webPageHeaders = getHeadersFromPage(headers);
 
-        assert expectedHeaders.equals(webPageHeaders);
+        Assertions.assertEquals(expectedHeaders, webPageHeaders);
         return this;
     }
 
-    public MainPage SearchValue(String value) {
+    public MainPage searchValue(String value) {
         searchInput.setValue(value).pressEnter();
         return this;
     }
