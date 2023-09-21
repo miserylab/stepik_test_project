@@ -4,7 +4,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverConditions.url;
-
-import static org.hamcrest.Matchers.everyItem;
 import static org.stepik.ui.helpers.WebPageElementsGetter.getHeadersFromPage;
 
 public class MainPage {
@@ -122,8 +119,7 @@ public class MainPage {
     }
 
     public MainPage verifyCatalogHeaders(List<String> expectedHeaders) {
-        catalogHeaders.shouldBe();
-////        sleep(10000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
+        sleep(10000); // The new lang takes forever to load. Let's stick with 10 000 to ensure it'd work anywhere.
         ElementsCollection headers = catalogHeaders;
         ArrayList<String> webPageHeaders = getHeadersFromPage(headers);
 
